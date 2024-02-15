@@ -1,0 +1,31 @@
+﻿@inherits UmbracoViewPage<BlockListItem>
+@using Umbraco.Cms.Core.Models.Blocks
+
+<div class="row clearfix">
+    <div class="col-md-12 column">
+        <canvas id="chart" width="500" height="300"></canvas>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+<script>
+    let ctx = document.getElementById("chart").getContext('2d');
+    var mychart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['001', '002', '003'],
+            datasets: [{
+                label: 'Bar Chart',
+                data: [100,200,300]
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
